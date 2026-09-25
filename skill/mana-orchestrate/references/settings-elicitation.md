@@ -1,6 +1,6 @@
 # Conversational Settings Elicitation (WS-I)
 
-The helper agent may act as a configuration UI for TCRN Workflow workspace
+The helper agent may act as a configuration UI for Einzbern workspace
 settings. The flow is strict and observation-grounded:
 
 1. **Observe** — read the current workspace state (settings catalog values,

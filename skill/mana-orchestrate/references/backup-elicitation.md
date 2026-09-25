@@ -2,27 +2,27 @@
 
 The helper agent may guide the operator through taking and restoring a hermetic
 snapshot of the workspace control tree. This flow teaches the operator to drive
-the installed **TCRN Workflow** snapshot verbs — it never carries
+the installed **Einzbern** snapshot verbs — it never carries
 workspace data itself, and it never runs a backup automatically.
 
 All paths below are workspace-relative placeholders. `<root>` is the Workspace
-authority root (the directory that contains `.tcrn-workflow/`). Paths with spaces
+authority root (the directory that contains the old-layout workspace control directory, written `<control>/` below (the engine's alias table names it)). Paths with spaces
 are first-class — always double-quote them.
 
 ## Capabilities and the release that provides them
 
 - The `snapshot-manifest` verb, which writes the deterministic canonical-JSON
   receipt (sorted per-file sha256 + head event hash + embedded validate result),
-  is provided by the pinned TCRN Workflow release.
+  is provided by the pinned Einzbern release.
 - The `snapshot-verify` verb, which proves a copy or a restored tree is
   byte-identical to the manifest and emits `SNAPSHOT_VERIFIED`, is provided by
-  the pinned TCRN Workflow release.
+  the pinned Einzbern release.
 - The `backup.cadence` and `backup.destination` conversational (Tier-2) settings
   keys, read only when this flow composes an explicit snapshot invocation, are
-  provided by the pinned TCRN Workflow release.
+  provided by the pinned Einzbern release.
 - The quiesce/settle preconditions (`recover`, `validate`, the lease as the
   quiesce proof) that a provable snapshot depends on are provided by the pinned
-  TCRN Workflow release.
+  Einzbern release.
 - The read-path replay snapshot under `snapshots/` is distinct from this backup
   receipt. It is an engine-maintained performance checkpoint, not a backup
   destination and not a replacement for the whole-control-tree snapshot this
@@ -38,7 +38,7 @@ are first-class — always double-quote them.
    not a moved workspace; obtain a separately supported engine operation and
    Owner decision before changing an address. Historical relocation names in
    older records are compatibility data only.
-2. **Lockstep-only.** Snapshot and restore the WHOLE `.tcrn-workflow` control
+2. **Lockstep-only.** Snapshot and restore the WHOLE `<control>` control
    tree — both the workspace event log and the knowledge store together. A
    partial restore bricks the store and is unrecoverable by design.
 
@@ -49,8 +49,8 @@ are first-class — always double-quote them.
 2. **Settle and prove green.**
 
    ```
-   pnpm --silent exec tcrn-workflow recover --workspace "<root>" --at "<instant>"
-   pnpm --silent exec tcrn-workflow validate --workspace "<root>"
+   pnpm --silent exec einzbern recover --workspace "<root>" --at "<instant>"
+   pnpm --silent exec einzbern validate --workspace "<root>"
    ```
 
    If the chain advanced since the knowledge store was last aligned — any
@@ -58,7 +58,7 @@ are first-class — always double-quote them.
    in the next step fails `KNOWLEDGE_HIGH_WATER_MISMATCH`. Realign first:
 
    ```
-   pnpm --silent exec tcrn-workflow knowledge-rebase --workspace "<root>" --expected-version "<marker>" --at "<instant>"
+   pnpm --silent exec einzbern knowledge-rebase --workspace "<root>" --expected-version "<marker>" --at "<instant>"
    ```
 
    The `<marker>` is the store's own version, not the chain's; if you do not
@@ -68,7 +68,7 @@ are first-class — always double-quote them.
 3. **Write the receipt** (save stdout verbatim):
 
    ```
-   pnpm --silent exec tcrn-workflow snapshot-manifest --workspace "<root>" --at "<instant>" > "<receipt>"
+   pnpm --silent exec einzbern snapshot-manifest --workspace "<root>" --at "<instant>" > "<receipt>"
    ```
 
 4. **Copy the tree** with OS tools into a fresh per-snapshot directory under
@@ -77,18 +77,18 @@ are first-class — always double-quote them.
 
    ```
    mkdir -p "<destination>/<partition>-<utc-instant>"
-   cp -R "<root>/.tcrn-workflow" "<destination>/<partition>-<utc-instant>/.tcrn-workflow"
+   cp -R "<root>/<control>" "<destination>/<partition>-<utc-instant>/<control>"
    cp "<receipt>" "<destination>/<partition>-<utc-instant>/snapshot-manifest.json"
    ```
 
 5. **Prove the copy:**
 
    ```
-   pnpm --silent exec tcrn-workflow snapshot-verify --root "<destination>/<partition>-<utc-instant>" --manifest "<receipt>"
+   pnpm --silent exec einzbern snapshot-verify --root "<destination>/<partition>-<utc-instant>" --manifest "<receipt>"
    ```
 
-   The `--root` is the directory that CONTAINS `.tcrn-workflow`, never
-   `.tcrn-workflow` itself. `SNAPSHOT_VERIFIED` means the copy is
+   The `--root` is the directory that CONTAINS `<control>`, never
+   `<control>` itself. `SNAPSHOT_VERIFIED` means the copy is
    byte-identical. Any other result (`SNAPSHOT_MISMATCH`,
    `SNAPSHOT_RESIDUE_PRESENT`, `SNAPSHOT_MANIFEST_INVALID`,
    `SNAPSHOT_PATH_INVALID`, `SNAPSHOT_INPUT_INVALID`): do not keep the copy — see
@@ -133,9 +133,9 @@ are first-class — always double-quote them.
   reporting every deletion by name. Do not send it to `settings-set`.
 - `backup.destination` — a Tier-2 conversational preference with **no default**:
   always elicit an explicit absolute path. Recommend a destination that is
-  **OUTSIDE both** the workspace control directory `.tcrn-workflow`
+  **OUTSIDE both** the workspace control directory `<control>`
   (`WORKSPACE_CONTROL_DIRECTORY`) **and** the helper's managed trust-state root
-  `~/.tcrn-workflow` (a distinct tree that holds the machine-bound trust state —
+  the device directory `~/.einzbern` (a distinct tree that holds the machine-bound trust state —
   putting a backup there would collide with it). Also keep it out of the
   workspace root and out of any live host skills directory (`~/.claude/skills`
   or a project `.claude/skills`) — the same location hygiene the first-run
@@ -175,6 +175,6 @@ consequences to state before the first off-host backup:
 
 ## Never a backup destination
 
-`.tcrn-workflow/backups/` is migration-reserved: created empty at init, required
+`<control>/backups/` is migration-reserved: created empty at init, required
 as a directory, and never a user backup target. Copy snapshots to a destination
 outside `<root>`, never into `backups/`.

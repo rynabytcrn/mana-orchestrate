@@ -18,33 +18,33 @@ enough to be discoverable by a user and are not a permission by themselves.
 
 | language | install | update |
 | --- | --- | --- |
-| en | Help me install TCRN Workflow | Help me update TCRN Workflow |
-| zh-CN | 帮我安装 TCRN Workflow | 帮我更新 TCRN Workflow |
-| ja | TCRN Workflow をインストールして | TCRN Workflow を更新して |
-| ko | TCRN Workflow 설치해 줘 | TCRN Workflow 업데이트해 줘 |
-| fr | Aide-moi à installer TCRN Workflow | Aide-moi à mettre à jour TCRN Workflow |
+| en | Help me install Einzbern | Help me update Einzbern |
+| zh-CN | 帮我安装 Einzbern | 帮我更新 Einzbern |
+| ja | Einzbern をインストールして | Einzbern を更新して |
+| ko | Einzbern 설치해 줘 | Einzbern 업데이트해 줘 |
+| fr | Aide-moi à installer Einzbern | Aide-moi à mettre à jour Einzbern |
 
 The confirmation questions use the same language and name the operation:
 The agent asks the matching-language confirmation before any wizard step.
 
 | language | install confirmation | update confirmation |
 | --- | --- | --- |
-| en | Do you want to install TCRN Workflow now? I will show the complete install-manifest plan first. | Do you want to update TCRN Workflow now? I will show the complete install-manifest plan first. |
-| zh-CN | 你是想现在安装 TCRN Workflow 吗？我会先展示完整的 install-manifest 计划。 | 你是想现在更新 TCRN Workflow 吗？我会先展示完整的 install-manifest 计划。 |
-| ja | 今すぐ TCRN Workflow をインストールしますか？先に install-manifest の全計画を表示します。 | 今すぐ TCRN Workflow を更新しますか？先に install-manifest の全計画を表示します。 |
-| ko | 지금 TCRN Workflow를 설치할까요? 먼저 전체 install-manifest 계획을 보여 드립니다. | 지금 TCRN Workflow를 업데이트할까요? 먼저 전체 install-manifest 계획을 보여 드립니다. |
-| fr | Voulez-vous installer TCRN Workflow maintenant ? Je montrerai d’abord le plan complet de l’install-manifest. | Voulez-vous mettre à jour TCRN Workflow maintenant ? Je montrerai d’abord le plan complet de l’install-manifest. |
+| en | Do you want to install Einzbern now? I will show the complete install-manifest plan first. | Do you want to update Einzbern now? I will show the complete install-manifest plan first. |
+| zh-CN | 你是想现在安装 Einzbern 吗？我会先展示完整的 install-manifest 计划。 | 你是想现在更新 Einzbern 吗？我会先展示完整的 install-manifest 计划。 |
+| ja | 今すぐ Einzbern をインストールしますか？先に install-manifest の全計画を表示します。 | 今すぐ Einzbern を更新しますか？先に install-manifest の全計画を表示します。 |
+| ko | 지금 Einzbern를 설치할까요? 먼저 전체 install-manifest 계획을 보여 드립니다. | 지금 Einzbern를 업데이트할까요? 먼저 전체 install-manifest 계획을 보여 드립니다. |
+| fr | Voulez-vous installer Einzbern maintenant ? Je montrerai d’abord le plan complet de l’install-manifest. | Voulez-vous mettre à jour Einzbern maintenant ? Je montrerai d’abord le plan complet de l’install-manifest. |
 
 Similar requests are intent signals, not commands. Each language has at least
 two examples that must receive the matching-language question above:
 
 | language | similar request examples |
 | --- | --- |
-| en | install the workflow；can you set up TCRN Workflow |
+| en | install the workflow；can you set up Einzbern |
 | zh-CN | 帮我安装 workflow；升级 workflow |
-| ja | workflow をインストールして；TCRN Workflow を更新して |
-| ko | workflow 설치해 줘；TCRN Workflow 업그레이드해 줘 |
-| fr | installe le workflow；peux-tu mettre à jour TCRN Workflow |
+| ja | workflow をインストールして；Einzbern を更新して |
+| ko | workflow 설치해 줘；Einzbern 업그레이드해 줘 |
+| fr | installe le workflow；peux-tu mettre à jour Einzbern |
 
 Do not silently translate a similar request to English, infer approval from
 the presence of the word install or update, or execute a host command before

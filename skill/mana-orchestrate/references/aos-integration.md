@@ -101,7 +101,7 @@ becomes worth reproducing. Ask the engine rather than the version string — and
 the copy on the host that holds the chain, not whichever copy is nearest:
 
 ```
-tcrn-workflow commands
+einzbern commands
 ```
 
 If those verbs are absent, the deployed Workflow predates them; the cockpit will

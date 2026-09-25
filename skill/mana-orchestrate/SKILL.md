@@ -1,9 +1,9 @@
 ---
-name: tcrn-workflow-helper
-description: Trusted setup and operating guidance for TCRN Workflow. Use when Codex or Claude Code must discover, inspect, or test-only install, update, reinstall, uninstall, or invoke TCRN Workflow while enforcing release identity, pinned release-byte digests, offline-safe validation, and explicit approval. Use it also while working in a project that carries an installed governed workspace — when a discussion converges on a direction, a decision with consequences is made, work completes, or a choice warrants deliberation, it routes that moment to the verb family that records it. It offers; it never records without the user's explicit yes.
+name: mana-orchestrate
+description: Trusted setup and operating guidance for Einzbern. Use when Codex or Claude Code must discover, inspect, or test-only install, update, reinstall, uninstall, or invoke Einzbern while enforcing release identity, pinned release-byte digests, offline-safe validation, and explicit approval. Use it also while working in a project that carries an installed governed workspace — when a discussion converges on a direction, a decision with consequences is made, work completes, or a choice warrants deliberation, it routes that moment to the verb family that records it. It offers; it never records without the user's explicit yes.
 ---
 
-# TCRN Workflow Helper
+# Mana Orchestrate
 
 Use this Skill only after a trusted bootstrap has accepted the complete immutable
 archive. Never treat this directory, a clone, a cache, or a discovered path as
@@ -15,12 +15,17 @@ below — Deliberation Triggers and Recording Triggers — instead describe when
 would otherwise decide. Reading them in a session that never installs anything
 is the expected case.
 
-Targets the TCRN Workflow `v1.2.1` release on two Agent App hosts, Codex and
-Claude Code, with host-neutral protocols. The helper payload itself is `v1.0.7`:
-the immutable Workflow `v1.1.0` and Helper `v1.0.2` publications remain separate
-prior releases, and the two version identities remain distinct. Publication and
-trust state for the current pair is established only by its release assets and
-independently verified bootstrap.
+Mana Orchestrate is the Skill payload for Einzbern, the workflow engine. It runs on
+two Agent App hosts, Codex and Claude Code, with host-neutral protocols.
+
+<!-- einzbern:release-identity:start -->
+由 Einzbern 发布注入（filled in by the Einzbern release, never hand-written): the Einzbern
+release this payload targets, this payload's own version, and the prior immutable pair.
+<!-- einzbern:release-identity:end -->
+
+The engine and payload version identities remain distinct. Publication and trust state
+for a release pair is established only by its release assets and independently
+verified bootstrap.
 
 Current-surface facts about the candidate, each of which contradicts guidance you may
 meet elsewhere — including older copies of this Skill:
@@ -71,7 +76,7 @@ command (`install`/`update`/`reinstall`/`uninstall`) stays test-root-only.
 
 ## First-Run Guidance
 
-When the user asks to set up, install, or deploy TCRN Workflow, follow
+When the user asks to set up, install, or deploy Einzbern, follow
 `references/first-run-wizard.md` step by step. It roots trust in an
 independently obtained bootstrap runtime, gates every later step on a
 machine-checkable marker (never on this prose), and uses managed default paths so
@@ -293,7 +298,7 @@ configuration. When that class has `verify: true`, a non-empty task-level
 verification command is required and review evidence must retain its result.
 One dispatch carries one deliverable, and a one-command operation stays with the
 driving session. After completion, run
-`tcrn-workflow/scripts/review-evidence.mjs` against the exact work item: it
+the engine's `scripts/review-evidence.mjs` against the exact work item: it
 executes the chain's `advisory:verify`, records the real test-run output apart
 from the engine test result's `tests` array count and before/after `countCoverage`
 AST counts, and measures fixed base/head diff

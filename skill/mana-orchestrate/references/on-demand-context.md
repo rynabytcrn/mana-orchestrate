@@ -27,13 +27,13 @@ The helper (this Skill's trust boundary) exposes only trust/lifecycle verbs
 (`validate`, `verify-installed-copy`, `resolve`, `plan-network`,
 `install`/`update`/`reinstall`/`uninstall`). It has **no** work/knowledge query
 command, on purpose — that keeps the verifier and the product in separate trust
-domains. The commands below belong to the installed **TCRN Workflow** engine and
+domains. The commands below belong to the installed **Einzbern** engine and
 are invoked through the installed engine's **CLI**, each naming the workspace it
 reads.
 
 Where the chains are hosted by an AOS cockpit rather than sitting on the
 operator's machine, the same reads are forwarded through **AOS's** read face
-(`tcrn-workflow-aos-read`, tools prefixed `tcrn_remote_read_`), each naming a
+(the AOS read-only server, tools prefixed `tcrn_remote_read_`), each naming a
 **partition** so the workspace path comes from the topology and never from the
 caller. That face belongs to AOS, not to the engine: `v0.11.18` retires the
 engine's own MCP transport, so a deployment with no cockpit has no MCP in this
@@ -69,7 +69,7 @@ yourself, and never treat the router's refusal as a check to work around.
 
 ## The metadata-first query commands to teach
 
-Every command below is a verb of the installed **TCRN Workflow** engine, run through
+Every command below is a verb of the installed **Einzbern** engine, run through
 its CLI against a workspace path. Ask the engine's own `commands` catalog if you want
 to confirm any of them; that output, not this document, is the authority on what
 exists.

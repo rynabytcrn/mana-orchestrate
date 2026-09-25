@@ -50,7 +50,7 @@ Ask which layer owns the answer before editing anything:
 
 The route is a placement rule, not a suggestion to add more files. If a needed
 capability is absent from the public surface, record the gap for the Owner; do
-not import `tcrn-workflow` internals or make the helper a privileged client.
+not import Einzbern engine internals or make the helper a privileged client.
 
 ## Chapter 3 — Templates have two layers; hooks have two zones
 

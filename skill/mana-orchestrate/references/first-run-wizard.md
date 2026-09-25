@@ -1,7 +1,7 @@
 # First-Run Wizard (guided setup for non-technical users)
 
 The agent follows this flow ONLY when the user asks to set up / install / deploy
-TCRN Workflow. It reuses the `settings-elicitation.md` pattern: observe →
+Einzbern. It reuses the `settings-elicitation.md` pattern: observe →
 recommend-with-data → show-diff → explicit-confirm → receipt. Every network or
 mutating step needs the user's explicit approval. No path or flag is ever typed
 by the user — the agent uses the managed defaults below.
@@ -34,7 +34,7 @@ tampered or look-alike copy could simply rewrite these steps. Therefore:
 
 ## Managed defaults (so the user never types a path)
 
-- State root: `~/.tcrn-workflow/` (holds fetched release assets, the Workflow
+- State root: the device directory `~/.einzbern/` (holds fetched release assets, the engine
   clone, `state.json`, and any Workspace the user does not tie to a project —
   the recommended shape is one Workspace **per project**, placed with that
   project; see step 6). **Never** placed inside a skills/live directory.
@@ -47,11 +47,10 @@ Use the standard `skills` installer for placement; the helper's lifecycle
 commands remain test-root-only. Once the Owner has authorized a public source,
 the copy-oriented command is:
 
-```sh
-npx --yes skills@1.7.0 add "tpmoonchefryan/tcrn-workflow-helper#v1.0.7" \
-  --skill tcrn-workflow-helper \
-  --global --agent claude-code --agent codex --copy --yes
-```
+<!-- einzbern:release-identity:start -->
+由 Einzbern 发布注入：the exact `skills` installer command for the released payload
+(repository, tag and Skill id), copy-oriented for both hosts.
+<!-- einzbern:release-identity:end -->
 
 The installer only places files. Independently verify the bootstrap, then run
 `verify-installed-copy` against each host copy before allowing the copy to guide

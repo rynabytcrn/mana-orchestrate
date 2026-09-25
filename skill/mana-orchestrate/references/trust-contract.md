@@ -16,33 +16,15 @@ non-canonical scalar encodings fail closed.
 
 ## Release identity
 
-The current release pair targets repository
-`https://github.com/tpmoonchefryan/tcrn-workflow.git`, version `v1.2.1`,
-commit `17d9b96dce5611a09dfe1c1cc372acfb92330038`, tree
-`03f22ec795752c6c1b6eea1ff062e56f781bb18c`, and the frozen annotated-tag
-object `062659517a7944ab3489cf2beb8d0d7b454f9234` for the exact recipe below.
-This Engine patch release retires knowledge only through write-time conflict
-detection and `--supersedes`, removes the observation-day machinery (boundary
-rows, seal receipts, collector self-checks and day summaries), retires the
-`fitness.windowDays` and `fitness.minEvents` settings, and makes a
-snapshot-seeded replay and a replay from genesis read the same state. The
-immutable v1.2.0 Engine and v1.0.6 Helper publications remain historical prior
-releases. The companion Helper release is `v1.0.7`; its final commit, tree,
-tag recipe, archive, and all asset digests are fixed in the dual-version
-release manifest, not inferred from this prose.
+<!-- einzbern:release-identity:start -->
+由 Einzbern 发布注入：the engine repository, version, commit, tree and annotated-tag
+object this payload targets, the companion payload release, and the tag-object recipe.
+The working tree carries none of these values; the release fills them in.
+<!-- einzbern:release-identity:end -->
 
-The planned engine tag-object recipe is independently reproducible with Git's
+The engine tag-object recipe, once injected, is independently reproducible with Git's
 SHA-1 annotated-tag object framing (`tag <UTF-8 byte length>\0<recipe>`). It is
-metadata only; do not create or move this tag in the implementation Pack.
-
-```text
-object 17d9b96dce5611a09dfe1c1cc372acfb92330038
-type commit
-tag v1.2.1
-tagger tpmoonchefryan <253097889+tpmoonchefryan@users.noreply.github.com> 1790332939 +0800
-
-TCRN Workflow v1.2.1
-```
+metadata only; do not create or move a tag from this document.
 
 These values are release metadata, not a trust anchor. The bootstrap runtime
 must pin the same Engine identity and its SHA-256 must be published through an
@@ -122,7 +104,7 @@ evidence actually lives, and nothing in this candidate involves a live `claude`
 or Codex App binary.
 
 **Proven by the Helper-local archive check**
-(`node skill/tcrn-workflow-helper/scripts/create-skill-archive.mjs --check`): the
+(`node skill/mana-orchestrate/scripts/create-skill-archive.mjs --check`): the
 helper package has no `scripts` entry and therefore has no `npm test` command;
 `npm test` must not be presented as a Helper-produced proof. The archive check
 is deterministic and covers the Helper payload's sorted paths, per-file SHA-256
@@ -192,7 +174,7 @@ the correct digest is.
 The candidate provenance (`complete-skill-archive.provenance.json`) is a
 **self-asserted local build statement**, not a hosted-builder attestation: it
 declares build type `tcrn.workflow.local-unpublished-candidate.v1`, builder id
-`tcrn-workflow-local`, and zeroed timestamps. It is pinned by digest in the
+the local builder id of the engine, and zeroed timestamps. It is pinned by digest in the
 candidate bootstrap so it cannot be swapped, but it is not third-party evidence
 of how the candidate was built. After publication, the reproducible-build
 materials let a third party rebuild from the approved clean checkouts and assert

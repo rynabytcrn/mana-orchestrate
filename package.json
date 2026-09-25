@@ -1,8 +1,8 @@
 {
-  "name": "tcrn-workflow-helper",
+  "name": "mana-orchestrate",
   "version": "1.0.7",
   "private": true,
-  "description": "TCRN Workflow Skill payload for Claude Code and Codex.",
+  "description": "Mana Orchestrate：Einzbern 的 Skill 载荷（Claude Code 与 Codex）。",
   "license": "Apache-2.0",
   "engines": {
     "node": ">=24"

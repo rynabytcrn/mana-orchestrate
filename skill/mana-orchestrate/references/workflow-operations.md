@@ -527,7 +527,7 @@ role/provider fields that the host omits remain `unknown`, not authorization.
 The closeout side remains live-authority based: run the final evidence commands
 after the last commit. A manifest, self-written result table, or self-closing
 flag is not an authority substitute. The source-to-rule conservation registry
-is `tcrn-workflow/scripts/policy/story-rule-conservation.json`; every retained,
+is the engine's `scripts/policy/story-rule-conservation.json`; every retained,
 stricter, or deferred rule needs a positive leg and a deletion red leg.
 
 The task classification comes from the current dispatch configuration. A class
@@ -632,7 +632,7 @@ promised, so it no longer carries one.
   "undo" something: the workflow answers with a compensating record, and the
   original stays visible. That is the property they are paying for.
 - **Only the engine may write inside the control tree.** Everything under
-  `.tcrn-workflow/` — the event log above all — is written in the engine's
+  the workspace control directory — the event log above all — is written in the engine's
   exact canonical byte form (sorted keys, no indentation, exactly one terminal
   newline). Any other tool that touches those files breaks the chain: an editor
   that reformats on save, a linter, a prettifier, a sync daemon, or an agent
