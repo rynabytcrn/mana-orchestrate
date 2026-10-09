@@ -1,55 +1,67 @@
+<div align="center">
+
 # Mana Orchestrate
 
-Mana Orchestrate 是 Einzbern（工作流引擎）的 Skill 载荷：告诉宿主 Agent 何时、怎样调用
-Einzbern。本仓库只分发 `skill/mana-orchestrate/`：一份 `SKILL.md` 与 `references/`
-下的指导文档，供 Claude Code 与 Codex 两个宿主读取。
-旧名 tcrn-workflow-helper，新旧名对照见 Einzbern 词汇表的别名表。
+圣杯实现愿望，Mana Orchestrate 让魔力在对的时刻流到对的地方。
 
-引擎本身不由本仓库安装。本仓库不携带引导器、发布归档、SBOM 或发版门；它是一份文档载荷，
-不是一条发布链路。
+**简体中文** · [English](README.en.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Français](README.fr.md)
 
-<!-- einzbern:release-identity:start -->
-由 Einzbern 发布注入：引擎仓库与 Wiki 的地址、本载荷所配套的 Einzbern 版本、本载荷自身版本，
-以及保持不变的上一对不可变发布。
-<!-- einzbern:release-identity:end -->
+![release](https://img.shields.io/badge/release-2.0.0-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
 
-本仓库中的版本号不构成发布或信任声明；trusted bootstrap、归档、provenance、
-manifest 与 checksums 必须由候选构建生成，并在独立 bootstrap 摘要发布后才可受信。
+[它做三件事](#它做三件事) · [安装](#安装) · [装好之后](#装好之后) · [版本](#版本) · [里面有什么](#里面有什么)
+
+</div>
+
+> [!TIP]
+> `npx skills add tpmoonchefryan/mana-orchestrate`，然后在项目里对宿主说「安装 Einzbern」。
+
+---
+
+它是把 Einzbern 接进 Claude Code 与 Codex 的 skill。Einzbern 是给 Claude Code 与 Codex 的项目记忆：工单、知识、纪要，在需要的那条 prompt 前出现在模型面前。Mana 是在其中流转的记忆，Orchestrate 是指挥它何时流向哪里。这个 skill 告诉模型什么时候该调引擎的哪个功能，并带着安装向导。
+
+## 它做三件事
+
+**把 Einzbern 装进来。** 你对宿主说一句「安装 Einzbern」，向导接手：一屏问题，一次确认，下载与校验引擎，接好钩子，两个宿主一次装完。
+
+**告诉模型什么时候做什么。** 一张导航表：开工先取记忆，做完把结果记回工单，有决定记纪要，有教训写卡片。表由引擎按版本生成，模型读到的动词与引擎里的一一对应。
+
+**自己什么都不持有。** 没有数据，没有规则，没有配置。记忆在项目的 `.ether` 里，以太，记录固定成文件的地方。原则与变量在 Atelier 里，魔术师的工房，也就是本机的管理页面。它只是那张表和那个向导。
 
 ## 安装
 
-用 `skills` 安装器把 Skill 复制进两个宿主，命令由发布注入：
+用 skills 命令：
 
-<!-- einzbern:release-identity:start -->
-由 Einzbern 发布注入：`npx --yes skills@1.7.0 add` 的完整命令（仓库、标签与 Skill id），
-带 `--global --agent claude-code --agent codex --copy --yes`。
-<!-- einzbern:release-identity:end -->
+```
+npx skills add tpmoonchefryan/mana-orchestrate
+```
 
-`--copy` 是刻意的：宿主里必须是一份普通目录，符号链接不是有效的已安装副本。
-安装器只放置文件，它不是信任根。
+或者对宿主说：找一个叫 Mana Orchestrate 的 skill，装上。
 
-## 引擎版本对齐
+它会落在宿主的 skills 目录里，Claude Code 是 `~/.claude/skills`，Codex 是 `~/.agents/skills`。然后在项目目录里说：安装 Einzbern。
 
-**引擎版本对齐由工作区设置 `engine.requiredVersion` 承担，不由本仓库承担。**
-容器用这个键声明它的记录是在哪一版引擎的契约下写的；不满足该声明的引擎按名拒绝，
-并同时报出要求版本与运行版本，而不是把版本落后表现成链损坏。设置的读写与追问方式见
-`skill/mana-orchestrate/references/platform-layout.md` 与
-`skill/mana-orchestrate/references/first-run-wizard.md`。
+向导会问：全新安装还是从已有的 `.ether` 恢复，生成物放哪，是否在云同步文件夹里，用什么语言，要不要在 AGENTS.md 写导航段。最后列出将写入的文件，你确认一次。引擎从与本 skill 同版本的发布下载，校验摘要后才落地；有本地压缩包也可以离线装。
 
-## 仓库内容
+之后的事都是同一个向导的模式：更新、修复、从 TCRN Workflow 迁移、卸载、体检。对宿主说「更新 Einzbern」就行。
 
-| 路径 | 内容 |
-| --- | --- |
-| `skill/mana-orchestrate/SKILL.md` | Skill 根，带 `name` 与 `description` frontmatter |
-| `skill/mana-orchestrate/references/` | 指导文档载荷 |
-| `skill/mana-orchestrate/agents/openai.yaml` | 多宿主包装器的宿主元数据 |
-| `skill/mana-orchestrate/scripts/create-skill-archive.mjs` | 生成确定性归档清单 |
+它不提交、不推送、不改你的 .gitignore、不删任何东西，除下载引擎外不联网。
+
+## 装好之后
+
+你正常工作。每条 prompt 前，宿主把它交给引擎检索一次，有强相关的标题就进上下文，没有就什么都不发生。模型按导航表在对的时刻记录。你想看或想改，打开 Atelier。
+
+## 版本
+
+与 Einzbern 同一版本号，同一次发布。当前 2.0.0。本 README 与 SKILL.md 里的导航表都由 Einzbern 发布时生成，这个仓库里不手改文档。
+
+## 里面有什么
+
+- `SKILL.md`：导航表与三步用法。日常会话只加载这一份。
+- `references/`：安装、恢复、更新、迁移、卸载、体检的向导文本。只在安装时加载。
 
 ## 完整文档
 
-架构、命令参考、判据与门在 Einzbern 仓库的 GitHub Wiki（地址见上方发布注入块）。本仓库
-不单独维护 Wiki。
+Einzbern 的 README 与 Wiki。
 
 ## 许可
 
-Apache-2.0，见 [LICENSE](./LICENSE)。
+Apache-2.0
