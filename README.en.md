@@ -6,7 +6,7 @@ The Grail grants wishes; Mana Orchestrate makes the mana flow to the right place
 
 [简体中文](README.md) · **English** · [日本語](README.ja.md) · [한국어](README.ko.md) · [Français](README.fr.md)
 
-![release](https://img.shields.io/badge/release-2.0.0-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
+![release](https://img.shields.io/badge/release-2.0.1-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
 
 [It does three things](#it-does-three-things) · [Install](#install) · [Once it is in](#once-it-is-in) · [Version](#version) · [What is inside](#what-is-inside)
 
@@ -51,7 +51,7 @@ You work as usual. Before every prompt, the host hands it to the engine for one 
 
 ## Version
 
-Same version number as Einzbern, same release. Currently 2.0.0. This README and the navigation table in SKILL.md are generated when Einzbern is released; documents in this repository are not edited by hand.
+Same version number as Einzbern, same release. Currently 2.0.1. This README and the navigation table in SKILL.md are generated when Einzbern is released; documents in this repository are not edited by hand.
 
 ## What is inside
 
