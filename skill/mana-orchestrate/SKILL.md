@@ -5,11 +5,13 @@ description: "The Grail grants wishes; Mana Orchestrate makes the mana flow to t
 
 # Mana Orchestrate
 
-Navigation for Einzbern 2.0.2: which engine verb to run at which moment. The engine generated this file for that version; do not edit it by hand.
+Navigation for Einzbern 2.0.3: which engine verb to run at which moment. The engine generated this file for that version; do not edit it by hand.
 
 ## Navigation
 
 Run a verb as `node "<device directory>/engine/einzbern.mjs" <verb> --<flag> <value>`. The device directory is `~/.einzbern`, or the directory `EINZBERN_HOME` names when it is set; if that file does not exist, Einzbern is not installed on this device yet, so treat the request as an install. Each verb prints one JSON object with a `reasonCode`; `commands` lists every verb, and `<verb> --help` lists one verb's flags. Give `--at` the current UTC instant, `YYYY-MM-DDTHH:MM:SSZ`, wherever a verb takes it. Inside a registered project the library is found from the current directory; pass `--workspace <library>` only elsewhere.
+
+Several sessions can work in one library at the same time: the engine queues their writes, so no session has to stop or step aside for another. Except for a migration, never ask the user to stop the other sessions.
 
 | Moment | Verb | What to do |
 | --- | --- | --- |
