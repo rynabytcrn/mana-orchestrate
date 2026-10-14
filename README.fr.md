@@ -6,7 +6,7 @@ Le Graal exauce les vœux ; Mana Orchestrate fait couler le mana au bon endroit,
 
 [简体中文](README.md) · [English](README.en.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · **Français**
 
-![release](https://img.shields.io/badge/release-2.0.3-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
+![release](https://img.shields.io/badge/release-2.1.0-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
 
 [Il fait trois choses](#il-fait-trois-choses) · [Installation](#installation) · [Une fois en place](#une-fois-en-place) · [Version](#version) · [Ce qu'il contient](#ce-quil-contient)
 
@@ -51,7 +51,7 @@ Vous travaillez comme d'habitude. Avant chaque prompt, l'hôte le confie au mote
 
 ## Version
 
-Même numéro de version qu'Einzbern, même release. Actuellement 2.0.3. Ce README et la table de navigation de SKILL.md sont générés à la release d'Einzbern ; dans ce dépôt, les documents ne sont pas modifiés à la main.
+Même numéro de version qu'Einzbern, même release. Actuellement 2.1.0. Ce README et la table de navigation de SKILL.md sont générés à la release d'Einzbern ; dans ce dépôt, les documents ne sont pas modifiés à la main.
 
 ## Ce qu'il contient
 
