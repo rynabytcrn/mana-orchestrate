@@ -81,6 +81,48 @@ at all, and doctor does not report it.
   around the refusal.
 - The release it unpacked stays in the device directory's `trash/`; nothing is deleted.
 
+## Clearing after a version change
+
+Each install and update leaves its unpacked release in the device directory's `trash/`, and each
+update leaves the copies it took in `backups/`. Once the new version runs and its checks are ok,
+`device-clean --at <UTC>` lists them: each staging in `trash/` and each entry of `backups/`, with its
+size and why it would be kept or cleared (`DEVICE_CLEAN_PLAN_READY`), an entry of `backups/` also
+with what it holds one level down (`contents`), and writes nothing. It always keeps the pre-update
+backups of the current and the previous version that `engine/current` names (the previous one is
+what a rollback goes back to) and the staging of the current version; any other entry of `trash/` is
+not a staging and stays too. Of the other entries of `backups/` it clears only one that holds the
+skill copies alone (`skill-copies`), and only when, read further down without following a link,
+all they hold is each host's copy as an update replaced it (`<host skill root>/mana-orchestrate`
+under `.claude/skills` or `.agents/skills`), which a release places again (`skill-copies-backup`).
+One that holds an original a write replaced (`host-hooks`, `writable-roots`, `managed-sections`,
+`crest-bodies`, `launchers`, `registry`, `registry.json`) stays (`holds-originals`), and so does
+one whose `skill-copies` holds anything the migration moved there, the old helper's copies or the
+install markers of its retired trust chain, since those are the only copies there are. Anything
+else it does not know stays too (`unrecognised-backup`): a name it does not know, a file or a link
+where a directory belongs, or an empty directory. A symbolic link, or an area that leads out
+of the device directory, is listed as refused and never touched. Show the plan with `removeBytes`,
+and run the same command with `--yes true` only once the user agreed: it deletes what the plan
+clears, each checked again, and `DEVICE_CLEANED` names each entry it deleted with its size, and any
+it could not (`failed`). Without `engine/current` it judges nothing (`DEVICE_CLEAN_ENGINE_UNKNOWN`).
+
+## Emptying a session's trash
+
+An unattended session never runs rm or rmdir: whatever it clears it moves into a `trash` directory
+under its scratch directory (the unattended-commands principle). Emptying that trash needs the
+Owner's authorization, given once for each report that lists the paths and sizes. The skill's
+`scripts/trash-empty.mjs` makes the report: `node <skill directory>/scripts/trash-empty.mjs
+--scratch <scratch root> <trash directory>...` prints the plan and deletes nothing
+(`TRASH_EMPTY_PLAN_READY`): each named directory's real path, how many entries it holds and their
+size in bytes. A named directory is a path relative to the scratch root whose last segment is
+`trash` or `trash-<name>`. It is refused (`TRASH_EMPTY_REFUSED`), and then nothing at all is deleted,
+when it is written with a wildcard, an absolute path or a `.` or `..` segment, when it is a symbolic
+link or not a directory, when its real path leads out of the scratch root, or when it is the same
+as another named directory or lies inside one. A scratch root that is the filesystem root, the
+user's home or a directory above it is refused as well (`TRASH_EMPTY_SCRATCH_ROOT_REFUSED`). Only
+once the Owner has answered the report, run the same command with `--yes`: it checks each directory
+again, deletes what it holds, keeps the directory itself, and answers `TRASH_EMPTIED` with how many
+entries of each it deleted, or `TRASH_EMPTY_INCOMPLETE` with each one it could not.
+
 ## Flags
 
 | Answer | `setup` flag |
@@ -92,9 +134,16 @@ at all, and doctor does not report it.
 | Cloud drive, for a repair | `--cloud true` or `--cloud false` |
 | Navigation section, for a repair | `--navigation true` or `--navigation false` |
 | Yes at the final confirmation | `--yes true` |
+| Clear old stagings and the backups that can be rebuilt after a version change: older pre-update backups and the skill copies an update replaced, never originals or what the migration moved | `device-clean --at <UTC>`, then `--yes true` once the user agreed |
+| Empty the named trash directories under a session's scratch directory, never anything else | `node <skill directory>/scripts/trash-empty.mjs --scratch <scratch root> <trash directory>...`, then `--yes` once the Owner authorized the report |
 
 ## Boundaries
 
 The wizard never commits, pushes, edits `.gitignore`, or deletes anything, and neither do you
 during this task. Anything it replaces is backed up first, and the result names the backup
-directory.
+directory. The one deletion is `device-clean --yes true`, after the update and once the user
+agreed: only the stagings and backups its plan clears, inside the device directory; a backup that
+holds an original stays, the `launchers` and `registry` a write replaced and the old helper's copies
+and install markers the migration moved among them, and so does a backup it does not know.
+Emptying a session's trash is not part of this task: `trash-empty.mjs --yes` runs only after the
+Owner authorized the report its plan made, and deletes only what the named trash directories hold.

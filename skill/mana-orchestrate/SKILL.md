@@ -5,7 +5,7 @@ description: "The Grail grants wishes; Mana Orchestrate makes the mana flow to t
 
 # Mana Orchestrate
 
-Navigation for Einzbern 2.1.0: which engine verb to run at which moment. The engine generated this file for that version; do not edit it by hand.
+Navigation for Einzbern 2.2.0: which engine verb to run at which moment. The engine generated this file for that version; do not edit it by hand.
 
 ## Navigation
 

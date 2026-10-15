@@ -13,8 +13,9 @@ says to invoke the engine.
 
 Show all eight checks in one short table, ok or not. A check that is not ok has one reasonCode of
 its own, and `detail.causes` names what made it so; quote both, and the rest of the detail, as they
-are. Say in one plain sentence what it means and give the handling below. Fix nothing before the
-user agrees.
+are. Say in one plain sentence what it means and give the handling below. List the registry
+check's `detail.hints` under the table, if any; a hint never makes a check not ok. Fix nothing
+before the user agrees.
 
 ## The eight checks
 
@@ -53,6 +54,18 @@ project has no library yet. No library at the recorded place, or another one
 finish syncing, then restore. A registry or manifest that does not read
 (`LIBRARY_REGISTRY_INVALID`, `LIBRARY_MANIFEST_INVALID`): stop and report it.
 
+An entry of the registry whose library path no longer exists on this device (a project that was
+moved, renamed or deleted) is a hint, not a red: `detail.hints` lists each as
+`REGISTRY_LIBRARY_MISSING` with its `projectPath`, `libraryPath` and `libraryId`, and the check
+keeps its answer. `library-unregister --project <projectPath> --at <UTC>` takes such an entry out.
+Run without `--yes true` it only answers the plan, `LIBRARY_UNREGISTER_PLAN_READY`: the entry,
+whether its project and library paths still exist, the other entries of the same library (they
+stay) and the backup directory; it writes nothing. Show the plan and run it again with
+`--yes true` only once the user agreed, or a decision of theirs names the entry: registry.json is
+copied to `backups/<UTC>-library-unregister/` of the device directory and then replaced without
+that one entry (`LIBRARY_UNREGISTERED`). An entry no project path matches is refused with
+`LIBRARY_NOT_REGISTERED`.
+
 ### library-format
 
 This engine, and the engine this device has current, can open the library's format. Not ok:
@@ -88,6 +101,13 @@ not UTF-8 text (`MANAGED_SECTION_FILE_UNSUPPORTED`, the file named in `detail.pr
 the check red only while the library records a section in it; with none recorded, the file is
 listed in `detail.skipped` and the check stays ok. Leave such a file alone and ask the user what
 to do with it.
+
+A coordination library's sections are managed the same way. Its registered root, the container it
+coordinates, holds them in its own `AGENTS.md` and `CLAUDE.md`, and `doctor --project` with that
+root checks them against the coordination library's records: `detail.sections` lists every
+recorded section as `<file>#<section id>` with its state, and `detail.pending` the ones that wait.
+Pending sections are handled exactly as above. `setup --mode repair` on the container puts its
+sections back; `setup --mode update` writes no project file, the container included.
 
 ### cloud-flag
 
@@ -159,6 +179,7 @@ prompt means the directory is in no known container, or the hook never reached t
 | Check this device and the project | `doctor --project <dir>` |
 | Check with the current directory as the project | `doctor` |
 | Put back the hooks, the skill copies, the launchers, the registry entry | `setup --mode repair` |
+| Take out a registry entry whose library is gone | `library-unregister --project <projectPath> --at <UTC>`, then `--yes true` once the user agreed |
 | Move to a newer engine | `setup --mode update` |
 | Cloud-drive answer | `--cloud true` or `--cloud false` |
 | Yes at the final confirmation | `--yes true` |
@@ -166,4 +187,5 @@ prompt means the directory is in no known container, or the hook never reached t
 ## Boundaries
 
 Doctor never writes. The fixes never commit, push, edit `.gitignore`, or delete anything, and
-neither do you during this task.
+neither do you during this task. The one removal is `library-unregister --yes true`, which takes a
+single registry entry out once the user agreed and keeps a copy of the registry first.
