@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "status": "source-preparation-only",
+  "engineRepository": "tpmoonchefryan/einzbern",
+  "engineCommit": "41a3c974d77ac7dbe84b4852b08ebc705017fede",
+  "engineTree": "5e653455e54e4b12f4b19504d3e59cad1141b1c2",
+  "sourceVersion": "2.2.3",
+  "targetRelease": "3.0.0",
+  "helperBase": "7f3d75fdb315515f79ad09966ed984a1c7a33c2f",
+  "preservedArchiveSha256": "c7c45eaaa16aa9b31e87a4fdbb7302eae49bcccb1e7fa109ed49246fb644223d"
+}

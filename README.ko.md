@@ -1,3 +1,7 @@
+> [!WARNING]
+> SOURCE PREPARATION ONLY / 仅源码配套准备 / ソース準備のみ / 소스 준비 전용 / Préparation source uniquement.
+> This snapshot targets Einzbern source commit 41a3c974d77ac7dbe84b4852b08ebc705017fede, not a published release. 2.2.3 below is the source manifest version, NOT proof that a released 2.2.3 supports this workflow; 3.0.0 remains an unpublished target. Do not install, update, or dispatch from this preparation snapshot. Native collectors, dispatchers, and tool-result adapters are not shipped. The generated release-oriented instructions below are reference material, not release acceptance.
+
 <div align="center">
 
 # Mana Orchestrate
@@ -6,7 +10,7 @@
 
 [简体中文](README.md) · [English](README.en.md) · [日本語](README.ja.md) · **한국어** · [Français](README.fr.md)
 
-![release](https://img.shields.io/badge/release-2.2.1-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
+![release](https://img.shields.io/badge/release-2.2.3-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20DeepSeek%20Harness-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
 
 [하는 일은 세 가지](#하는-일은-세-가지) · [설치](#설치) · [설치한 뒤](#설치한-뒤) · [버전](#버전) · [안에 있는 것](#안에-있는-것)
 
@@ -17,7 +21,7 @@
 
 ---
 
-Einzbern(아인츠베른)을 Claude Code와 Codex에 연결하는 스킬이다. Einzbern은 이 두 호스트를 위한 프로젝트 기억으로, 작업 항목, 지식, 회의록이 필요한 프롬프트 앞에서 모델 앞에 나타난다. Mana는 흐르는 기억, Orchestrate는 그것을 언제 어디로 흘려보낼지 지휘하는 일. 이 스킬은 모델에게 엔진의 어느 기능을 언제 부를지 가르치고, 설치 마법사를 함께 담고 있다.
+Einzbern(아인츠베른)을 Claude Code, Codex, DeepSeek Harness에 연결하는 스킬이다. Einzbern은 이 세 호스트를 위한 프로젝트 기억으로, 작업 항목, 지식, 회의록이 필요한 프롬프트 앞에서 모델 앞에 나타난다. Mana는 흐르는 기억, Orchestrate는 그것을 언제 어디로 흘려보낼지 지휘하는 일. 이 스킬은 모델에게 엔진의 어느 기능을 언제 부를지 가르치고, 설치 마법사를 함께 담고 있다.
 
 ## 하는 일은 세 가지
 
@@ -37,7 +41,7 @@ npx skills add tpmoonchefryan/mana-orchestrate
 
 또는 호스트에게 말한다. Mana Orchestrate라는 스킬을 찾아서 설치해 줘.
 
-호스트의 skills 디렉터리에 놓인다. Claude Code는 `~/.claude/skills`, Codex는 `~/.agents/skills`. 그다음 프로젝트 디렉터리에서 말한다. Einzbern을 설치해 줘.
+호스트의 skills 디렉터리에 놓인다. Claude Code는 `~/.claude/skills`, Codex와 DeepSeek Harness는 `~/.agents/skills`. DeepSeek Harness에서는 각 프롬프트 전의 회상을 플러그인 dsh-mana-orchestrate가 맡고, 훅 파일은 쓰지 않는다. 그다음 프로젝트 디렉터리에서 말한다. Einzbern을 설치해 줘.
 
 마법사가 묻는 것은 새로 설치할지 기존 `.ether`에서 복원할지, 산출물을 어디에 둘지, 그곳이 클라우드 동기화 폴더인지, 언어는 무엇인지, AGENTS.md에 내비게이션 절을 쓸지. 마지막으로 기록할 파일을 전부 나열하고, 당신이 한 번만 확인한다. 엔진은 이 스킬과 같은 버전의 릴리스에서 내려받아 다이제스트를 검증한 뒤에야 놓인다. 로컬 압축 파일이 있으면 오프라인으로도 설치된다.
 
@@ -51,7 +55,7 @@ npx skills add tpmoonchefryan/mana-orchestrate
 
 ## 버전
 
-Einzbern과 같은 버전 번호, 같은 릴리스. 현재 2.2.1. 이 README와 SKILL.md의 내비게이션 표는 Einzbern 릴리스 때 생성된다. 이 저장소에서는 문서를 손으로 고치지 않는다.
+Einzbern과 같은 버전 번호, 같은 릴리스. 현재 2.2.3. 이 README와 SKILL.md의 내비게이션 표는 Einzbern 릴리스 때 생성된다. 이 저장소에서는 문서를 손으로 고치지 않는다.
 
 ## 안에 있는 것
 

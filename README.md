@@ -1,3 +1,7 @@
+> [!WARNING]
+> SOURCE PREPARATION ONLY / 仅源码配套准备 / ソース準備のみ / 소스 준비 전용 / Préparation source uniquement.
+> This snapshot targets Einzbern source commit 41a3c974d77ac7dbe84b4852b08ebc705017fede, not a published release. 2.2.3 below is the source manifest version, NOT proof that a released 2.2.3 supports this workflow; 3.0.0 remains an unpublished target. Do not install, update, or dispatch from this preparation snapshot. Native collectors, dispatchers, and tool-result adapters are not shipped. The generated release-oriented instructions below are reference material, not release acceptance.
+
 <div align="center">
 
 # Mana Orchestrate
@@ -6,7 +10,7 @@
 
 **简体中文** · [English](README.en.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Français](README.fr.md)
 
-![release](https://img.shields.io/badge/release-2.2.1-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
+![release](https://img.shields.io/badge/release-2.2.3-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20DeepSeek%20Harness-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
 
 [它做三件事](#它做三件事) · [安装](#安装) · [装好之后](#装好之后) · [版本](#版本) · [里面有什么](#里面有什么)
 
@@ -17,7 +21,7 @@
 
 ---
 
-它是把 Einzbern 接进 Claude Code 与 Codex 的 skill。Einzbern 是给 Claude Code 与 Codex 的项目记忆：工单、知识、纪要，在需要的那条 prompt 前出现在模型面前。Mana 是在其中流转的记忆，Orchestrate 是指挥它何时流向哪里。这个 skill 告诉模型什么时候该调引擎的哪个功能，并带着安装向导。
+它是把 Einzbern 接进 Claude Code、Codex 与 DeepSeek Harness 的 skill。Einzbern 是给这三个宿主的项目记忆：工单、知识、纪要，在需要的那条 prompt 前出现在模型面前。Mana 是在其中流转的记忆，Orchestrate 是指挥它何时流向哪里。这个 skill 告诉模型什么时候该调引擎的哪个功能，并带着安装向导。
 
 ## 它做三件事
 
@@ -37,7 +41,7 @@ npx skills add tpmoonchefryan/mana-orchestrate
 
 或者对宿主说：找一个叫 Mana Orchestrate 的 skill，装上。
 
-它会落在宿主的 skills 目录里，Claude Code 是 `~/.claude/skills`，Codex 是 `~/.agents/skills`。然后在项目目录里说：安装 Einzbern。
+它会落在宿主的 skills 目录里，Claude Code 是 `~/.claude/skills`，Codex 与 DeepSeek Harness 是 `~/.agents/skills`。DeepSeek Harness 的每条 prompt 前召回由插件 dsh-mana-orchestrate 接入，不写钩子文件。然后在项目目录里说：安装 Einzbern。
 
 向导会问：全新安装还是从已有的 `.ether` 恢复，生成物放哪，是否在云同步文件夹里，用什么语言，要不要在 AGENTS.md 写导航段。最后列出将写入的文件，你确认一次。引擎从与本 skill 同版本的发布下载，校验摘要后才落地；有本地压缩包也可以离线装。
 
@@ -51,7 +55,7 @@ npx skills add tpmoonchefryan/mana-orchestrate
 
 ## 版本
 
-与 Einzbern 同一版本号，同一次发布。当前 2.2.1。本 README 与 SKILL.md 里的导航表都由 Einzbern 发布时生成，这个仓库里不手改文档。
+与 Einzbern 同一版本号，同一次发布。当前 2.2.3。本 README 与 SKILL.md 里的导航表都由 Einzbern 发布时生成，这个仓库里不手改文档。
 
 ## 里面有什么
 
