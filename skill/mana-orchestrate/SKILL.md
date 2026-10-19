@@ -2,14 +2,10 @@
 name: mana-orchestrate
 description: "The Grail grants wishes; Mana Orchestrate makes the mana flow to the right place at the right moment. It brings Einzbern, project memory, into Claude Code, Codex and DeepSeek Harness: recall before you start, write results back to the work item, record decisions as minutes, keep lessons as cards. Where Einzbern is not installed yet, it is the wizard: install, restore, update, migrate, uninstall, health check. Use it whenever Einzbern, work items, knowledge cards, minutes, .ether, or Atelier come up, or when the user asks to install or update it."
 ---
-> [!WARNING]
-> SOURCE PREPARATION ONLY / 仅源码配套准备 / ソース準備のみ / 소스 준비 전용 / Préparation source uniquement.
-> This snapshot targets Einzbern source commit 41a3c974d77ac7dbe84b4852b08ebc705017fede, not a published release. 2.2.3 below is the source manifest version, NOT proof that a released 2.2.3 supports this workflow; 3.0.0 remains an unpublished target. Do not install, update, or dispatch from this preparation snapshot. Native collectors, dispatchers, and tool-result adapters are not shipped. The generated release-oriented instructions below are reference material, not release acceptance.
-
 
 # Mana Orchestrate
 
-Navigation for Einzbern 2.2.3: which engine verb to run at which moment. The engine generated this file for that version; do not edit it by hand.
+Navigation for Einzbern 3.0.0: which engine verb to run at which moment. The engine generated this file for that version; do not edit it by hand.
 
 ## Navigation
 

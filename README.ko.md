@@ -1,7 +1,3 @@
-> [!WARNING]
-> SOURCE PREPARATION ONLY / 仅源码配套准备 / ソース準備のみ / 소스 준비 전용 / Préparation source uniquement.
-> This snapshot targets Einzbern source commit 41a3c974d77ac7dbe84b4852b08ebc705017fede, not a published release. 2.2.3 below is the source manifest version, NOT proof that a released 2.2.3 supports this workflow; 3.0.0 remains an unpublished target. Do not install, update, or dispatch from this preparation snapshot. Native collectors, dispatchers, and tool-result adapters are not shipped. The generated release-oriented instructions below are reference material, not release acceptance.
-
 <div align="center">
 
 # Mana Orchestrate
@@ -10,7 +6,7 @@
 
 [简体中文](README.md) · [English](README.en.md) · [日本語](README.ja.md) · **한국어** · [Français](README.fr.md)
 
-![release](https://img.shields.io/badge/release-2.2.3-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20DeepSeek%20Harness-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
+![release](https://img.shields.io/badge/release-3.0.0-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20DeepSeek%20Harness-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
 
 [하는 일은 세 가지](#하는-일은-세-가지) · [설치](#설치) · [설치한 뒤](#설치한-뒤) · [버전](#버전) · [안에 있는 것](#안에-있는-것)
 
@@ -55,7 +51,7 @@ npx skills add tpmoonchefryan/mana-orchestrate
 
 ## 버전
 
-Einzbern과 같은 버전 번호, 같은 릴리스. 현재 2.2.3. 이 README와 SKILL.md의 내비게이션 표는 Einzbern 릴리스 때 생성된다. 이 저장소에서는 문서를 손으로 고치지 않는다.
+Einzbern과 같은 버전 번호, 같은 릴리스. 현재 3.0.0. 이 README와 SKILL.md의 내비게이션 표는 Einzbern 릴리스 때 생성된다. 이 저장소에서는 문서를 손으로 고치지 않는다.
 
 ## 안에 있는 것
 
