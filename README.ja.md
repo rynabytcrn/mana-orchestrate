@@ -6,7 +6,7 @@
 
 [简体中文](README.md) · [English](README.en.md) · **日本語** · [한국어](README.ko.md) · [Français](README.fr.md)
 
-![release](https://img.shields.io/badge/release-3.0.0-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20DeepSeek%20Harness-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
+![release](https://img.shields.io/badge/release-3.1.0-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20DeepSeek%20Harness-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
 
 [やることは三つ](#やることは三つ) · [インストール](#インストール) · [入れたあと](#入れたあと) · [バージョン](#バージョン) · [中身](#中身)
 
@@ -25,7 +25,7 @@ Einzbern（アインツベルン）を Claude Code、Codex、DeepSeek Harness �
 
 **いつ何をするかをモデルに教える。** ナビゲーション表が一枚。始める前に記憶を取り、終えたら結果を作業項目に書き戻し、決定があれば議事録に、教訓があればカードに書く。表はエンジンが自分のバージョンに合わせて生成するので、モデルが読む動詞はエンジンの動詞と一対一で対応する。
 
-**自分では何も持たない。** データも、ルールも、設定もない。記憶はプロジェクトの `.ether`（エーテル、記録が形を保つ場所）に、原則と変数は Atelier（アトリエ、魔術師の工房。ここではローカルの管理ページ）にある。このスキルはその表とそのウィザードでしかない。
+**自分では何も持たない。** データも、ルールも、設定もない。記憶は使用者が親ディレクトリを選ぶ共有総合庫 `Ether` にあり、プロジェクトの識別子で区別する。既存のプロジェクトの `.ether` 庫も引き続き使える。原則と変数は Atelier（アトリエ、魔術師の工房。ここではローカルの管理ページ）にある。このスキルはその表とそのウィザードでしかない。
 
 ## インストール
 
@@ -39,7 +39,7 @@ npx skills add tpmoonchefryan/mana-orchestrate
 
 置き場所はホストの skills ディレクトリ。Claude Code は `~/.claude/skills`、Codex と DeepSeek Harness は `~/.agents/skills`。DeepSeek Harness では各プロンプト前の想起をプラグイン dsh-mana-orchestrate が担い、フックファイルは書かない。次にプロジェクトのディレクトリで言う。Einzbern をインストールして。
 
-ウィザードが尋ねるのは、新規か既存の `.ether` からの復元か、生成物をどこに置くか、そこがクラウド同期フォルダか、言語は何か、AGENTS.md にナビゲーション節を書くか。最後に書き込む予定のファイルを全部列挙し、あなたが一度だけ確認する。エンジンはこのスキルと同じバージョンのリリースからダウンロードされ、ダイジェストを検証してから配置される。ローカルのアーカイブがあればオフラインでも入る。
+ウィザードが尋ねるのは、新規か既存の庫からの復元か、`Ether` をどこに置くか、そこがクラウド同期フォルダか、言語は何か、AGENTS.md にナビゲーション節を書くか。`Ether` はフォルダ名で、親ディレクトリはローカルディスク、外付けディスク、同期フォルダから使用者が選ぶ。後続のプロジェクトは保存済みの場所を既定で再利用する。最後に書き込む予定のファイルを全部列挙し、あなたが一度だけ確認する。エンジンはこのスキルと同じバージョンのリリースからダウンロードされ、ダイジェストを検証してから配置される。ローカルのアーカイブがあればオフラインでも入る。
 
 その後のことはすべて同じウィザードのモードだ。更新、修復、TCRN Workflow からの移行、アンインストール、健全性チェック。「Einzbern を更新して」と言えばよい。
 
@@ -51,7 +51,7 @@ npx skills add tpmoonchefryan/mana-orchestrate
 
 ## バージョン
 
-Einzbern と同じバージョン番号、同じリリース。現在は 3.0.0。この README と SKILL.md のナビゲーション表は Einzbern のリリース時に生成される。このリポジトリでは文書を手で編集しない。
+Einzbern と同じバージョン番号、同じリリース。現在は 3.1.0。この README と SKILL.md のナビゲーション表は Einzbern のリリース時に生成される。このリポジトリでは文書を手で編集しない。
 
 ## 中身
 
