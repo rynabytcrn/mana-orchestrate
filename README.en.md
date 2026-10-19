@@ -1,3 +1,7 @@
+> [!WARNING]
+> SOURCE PREPARATION ONLY / 仅源码配套准备 / ソース準備のみ / 소스 준비 전용 / Préparation source uniquement.
+> This snapshot targets Einzbern source commit 41a3c974d77ac7dbe84b4852b08ebc705017fede, not a published release. 2.2.3 below is the source manifest version, NOT proof that a released 2.2.3 supports this workflow; 3.0.0 remains an unpublished target. Do not install, update, or dispatch from this preparation snapshot. Native collectors, dispatchers, and tool-result adapters are not shipped. The generated release-oriented instructions below are reference material, not release acceptance.
+
 <div align="center">
 
 # Mana Orchestrate
@@ -6,7 +10,7 @@ The Grail grants wishes; Mana Orchestrate makes the mana flow to the right place
 
 [简体中文](README.md) · **English** · [日本語](README.ja.md) · [한국어](README.ko.md) · [Français](README.fr.md)
 
-![release](https://img.shields.io/badge/release-2.2.1-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
+![release](https://img.shields.io/badge/release-2.2.3-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20DeepSeek%20Harness-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
 
 [It does three things](#it-does-three-things) · [Install](#install) · [Once it is in](#once-it-is-in) · [Version](#version) · [What is inside](#what-is-inside)
 
@@ -17,7 +21,7 @@ The Grail grants wishes; Mana Orchestrate makes the mana flow to the right place
 
 ---
 
-It is the skill that brings Einzbern into Claude Code and Codex. Einzbern is project memory for those two hosts: work items, knowledge, and minutes appear in front of the model before the prompt that needs them. Mana is the memory in circulation; orchestrate is directing when it flows where. This skill tells the model when to call which engine feature, and it carries the install wizard.
+It is the skill that brings Einzbern into Claude Code, Codex and DeepSeek Harness. Einzbern is project memory for those three hosts: work items, knowledge, and minutes appear in front of the model before the prompt that needs them. Mana is the memory in circulation; orchestrate is directing when it flows where. This skill tells the model when to call which engine feature, and it carries the install wizard.
 
 ## It does three things
 
@@ -37,7 +41,7 @@ npx skills add tpmoonchefryan/mana-orchestrate
 
 Or tell your host: find a skill called Mana Orchestrate and install it.
 
-It lands in the host's skills directory, `~/.claude/skills` for Claude Code and `~/.agents/skills` for Codex. Then, in the project directory, say: install Einzbern.
+It lands in the host's skills directory, `~/.claude/skills` for Claude Code and `~/.agents/skills` for Codex and DeepSeek Harness. In DeepSeek Harness, recall before each prompt comes through the dsh-mana-orchestrate plugin; no hook file is written. Then, in the project directory, say: install Einzbern.
 
 The wizard asks: fresh install or restore from an existing `.ether`, where the artifacts go, whether that folder is cloud-synced, which language, and whether to write a navigation section into AGENTS.md. It then lists every file it is about to write, and you confirm once. The engine is downloaded from the release that matches this skill's version and verified against its digest before anything lands; with a local archive it installs offline.
 
@@ -51,7 +55,7 @@ You work as usual. Before every prompt, the host hands it to the engine for one 
 
 ## Version
 
-Same version number as Einzbern, same release. Currently 2.2.1. This README and the navigation table in SKILL.md are generated when Einzbern is released; documents in this repository are not edited by hand.
+Same version number as Einzbern, same release. Currently 2.2.3. This README and the navigation table in SKILL.md are generated when Einzbern is released; documents in this repository are not edited by hand.
 
 ## What is inside
 
