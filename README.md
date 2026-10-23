@@ -6,7 +6,7 @@
 
 **简体中文** · [English](README.en.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Français](README.fr.md)
 
-![release](https://img.shields.io/badge/release-3.1.0-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20DeepSeek%20Harness-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
+![release](https://img.shields.io/badge/release-3.2.0-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20DeepSeek%20Harness-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
 
 [它做三件事](#它做三件事) · [安装](#安装) · [装好之后](#装好之后) · [版本](#版本) · [里面有什么](#里面有什么)
 
@@ -51,7 +51,7 @@ npx skills add tpmoonchefryan/mana-orchestrate
 
 ## 版本
 
-与 Einzbern 同一版本号，同一次发布。当前 3.1.0。本 README 与 SKILL.md 里的导航表都由 Einzbern 发布时生成，这个仓库里不手改文档。
+与 Einzbern 同一版本号，同一次发布。当前 3.2.0。本 README 与 SKILL.md 里的导航表都由 Einzbern 发布时生成，这个仓库里不手改文档。
 
 ## 里面有什么
 

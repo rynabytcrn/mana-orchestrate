@@ -6,7 +6,7 @@
 
 [简体中文](README.md) · [English](README.en.md) · [日本語](README.ja.md) · **한국어** · [Français](README.fr.md)
 
-![release](https://img.shields.io/badge/release-3.1.0-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20DeepSeek%20Harness-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
+![release](https://img.shields.io/badge/release-3.2.0-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20DeepSeek%20Harness-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
 
 [하는 일은 세 가지](#하는-일은-세-가지) · [설치](#설치) · [설치한 뒤](#설치한-뒤) · [버전](#버전) · [안에 있는 것](#안에-있는-것)
 
@@ -51,7 +51,7 @@ npx skills add tpmoonchefryan/mana-orchestrate
 
 ## 버전
 
-Einzbern과 같은 버전 번호, 같은 릴리스. 현재 3.1.0. 이 README와 SKILL.md의 내비게이션 표는 Einzbern 릴리스 때 생성된다. 이 저장소에서는 문서를 손으로 고치지 않는다.
+Einzbern과 같은 버전 번호, 같은 릴리스. 현재 3.2.0. 이 README와 SKILL.md의 내비게이션 표는 Einzbern 릴리스 때 생성된다. 이 저장소에서는 문서를 손으로 고치지 않는다.
 
 ## 안에 있는 것
 
