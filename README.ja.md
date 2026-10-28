@@ -6,7 +6,7 @@
 
 [简体中文](README.md) · [English](README.en.md) · **日本語** · [한국어](README.ko.md) · [Français](README.fr.md)
 
-![release](https://img.shields.io/badge/release-3.3.1-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20DeepSeek%20Harness-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
+![release](https://img.shields.io/badge/release-3.4.0-blue?style=flat-square) ![license](https://img.shields.io/badge/license-Apache--2.0-lightgrey?style=flat-square) ![skill](https://img.shields.io/badge/skill-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20DeepSeek%20Harness-informational?style=flat-square) ![engine](https://img.shields.io/badge/engine-Einzbern-9cf?style=flat-square)
 
 [やることは三つ](#やることは三つ) · [インストール](#インストール) · [入れたあと](#入れたあと) · [バージョン](#バージョン) · [中身](#中身)
 
@@ -51,7 +51,7 @@ npx skills add tpmoonchefryan/mana-orchestrate
 
 ## バージョン
 
-Einzbern と同じバージョン番号、同じリリース。現在は 3.3.1。この README と SKILL.md のナビゲーション表は Einzbern のリリース時に生成される。このリポジトリでは文書を手で編集しない。
+Einzbern と同じバージョン番号、同じリリース。現在は 3.4.0。この README と SKILL.md のナビゲーション表は Einzbern のリリース時に生成される。このリポジトリでは文書を手で編集しない。
 
 ## 中身
 

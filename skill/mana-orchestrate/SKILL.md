@@ -5,7 +5,7 @@ description: "The Grail grants wishes; Mana Orchestrate makes the mana flow to t
 
 # Mana Orchestrate
 
-Navigation for Einzbern 3.3.1: engine-generated; do not hand-edit.
+Navigation for Einzbern 3.4.0: engine-generated; do not hand-edit.
 
 Execution protocol: tcrn.host-execution-request.v1.
 
